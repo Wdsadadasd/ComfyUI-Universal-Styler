@@ -204,12 +204,13 @@ class LoadScriptsFromDatabase:
     
     @classmethod
     def INPUT_TYPES(cls):
-        cls.agents_csv = cls.load_agents_csv(os.path.join(folder_paths.base_path, "custom_nodes\\ComfyUI-Universal-Styler\\SCRIPTS\\agents.csv"))
-        cls.scenes_csv = cls.load_scenes_csv(os.path.join(folder_paths.base_path, "custom_nodes\\ComfyUI-Universal-Styler\\SCRIPTS\\scenes.csv"))
-        cls.motions_csv = cls.load_motions_csv(os.path.join(folder_paths.base_path, "custom_nodes\\ComfyUI-Universal-Styler\\SCRIPTS\\motions.csv"))
-        cls.lightings_csv = cls.load_lightings_csv(os.path.join(folder_paths.base_path, "custom_nodes\\ComfyUI-Universal-Styler\\SCRIPTS\\lightings.csv"))
-        cls.styles_csv = cls.load_styles_csv(os.path.join(folder_paths.base_path, "custom_nodes\\ComfyUI-Universal-Styler\\SCRIPTS\\styles.csv"))
-        cls.cameras_csv = cls.load_cameras_csv(os.path.join(folder_paths.base_path, "custom_nodes\\ComfyUI-Universal-Styler\\SCRIPTS\\cameras.csv"))
+        scripts_dir = os.path.join(os.path.dirname(__file__), "SCRIPTS")
+        cls.agents_csv = cls.load_agents_csv(os.path.join(scripts_dir, "agents.csv"))
+        cls.scenes_csv = cls.load_scenes_csv(os.path.join(scripts_dir, "scenes.csv"))
+        cls.motions_csv = cls.load_motions_csv(os.path.join(scripts_dir, "motions.csv"))
+        cls.lightings_csv = cls.load_lightings_csv(os.path.join(scripts_dir, "lightings.csv"))
+        cls.styles_csv = cls.load_styles_csv(os.path.join(scripts_dir, "styles.csv"))
+        cls.cameras_csv = cls.load_cameras_csv(os.path.join(scripts_dir, "cameras.csv"))
         return {
             "required": {
                 "channel_input": ("STRING", {"forceInput": True}),
